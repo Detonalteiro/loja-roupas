@@ -1,170 +1,70 @@
-/* Configurações Gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Variáveis para controlar o Modo Claro e Escuro */
+:root {
+    --fundo-principal: #f8f9fa;
+    --fundo-card: #ffffff;
+    --texto-principal: #1a1a1a;
+    --texto-secundario: #666666;
+    --cor-destaque: #111111;
+    --cor-botao: #25D366;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+/* Quando o body ganhar a classe 'dark', as variáveis mudam de cor sozinhas! */
+body.dark {
+    --fundo-principal: #121212;
+    --fundo-card: #1e1e1e;
+    --texto-principal: #ffffff;
+    --texto-secundario: #aaaaaa;
+    --cor-destaque: #ffffff;
+    --cor-botao: #128C7E;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background-color: var(--fundo-principal); color: var(--texto-principal); transition: background 0.3s, color 0.3s; }
 
 /* Cabeçalho */
-.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: var(--fundo-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+.logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+.logo span { color: #e63946; }
+.btn-icone { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-}
+/* Hero Section com Gradiente animado */
+.hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(45deg, #1a1a1a, #333333); color: white; padding: 0 20px; }
+.hero h1 { font-size: 3rem; margin-bottom: 10px; animation: subir 1s ease-out; }
+.hero p { font-size: 1.1rem; color: #cccccc; animation: subir 1.5s ease-out; }
 
-nav a {
-    text-decoration: none;
-    color: #555;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+/* Filtros */
+.filtros-container { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
+.btn-filtro { padding: 8px 20px; border: 2px solid var(--texto-principal); background: transparent; color: var(--texto-principal); border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.btn-filtro.ativo, .btn-filtro:hover { background: var(--texto-principal); color: var(--fundo-principal); }
 
-nav a:hover {
-    color: #e63946;
-}
+/* Grid de Produtos Avançado */
+.grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5%; max-width: 1300px; margin: 0 auto 50px auto; }
+.card { background-color: var(--fundo-card); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-10px); }
+.imagem-container { position: relative; height: 350px; overflow: hidden; }
+.imagem-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.card:hover .imagem-container img { transform: scale(1.1); }
+.tag { position: absolute; top: 15px; left: 15px; background: var(--texto-principal); color: var(--fundo-principal); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+.tag-desconto { background: #e63946; color: white; }
+.card-info { padding: 25px; text-align: center; }
+.card-info h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.preco { font-size: 1.5rem; font-weight: 700; color: #e63946; margin-bottom: 20px; }
+.btn-abrir-modal { background: var(--texto-principal); color: var(--fundo-principal); border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.btn-abrir-modal:hover { opacity: 0.8; }
 
-/* Banner de Entrada */
-.banner {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&q=80') center/cover;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
+/* Modal Glassmorphism (Efeito Desfocado) */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: 0.3s; }
+.modal-overlay.visivel { opacity: 1; pointer-events: auto; }
+.modal-conteudo { background: var(--fundo-card); width: 90%; max-width: 800px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; position: relative; transform: scale(0.9); transition: 0.3s; }
+.modal-overlay.visivel .modal-conteudo { transform: scale(1); }
+.modal-conteudo img { width: 100%; height: 100%; object-fit: cover; }
+.modal-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.modal-info h2 { font-size: 2rem; margin-bottom: 10px; }
+.destaque { font-size: 1.8rem; color: #e63946; font-weight: bold; margin-bottom: 20px; }
+.btn-acao { background: var(--cor-botao); color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+.fechar { position: absolute; top: 15px; right: 20px; color: var(--texto-secundario); background: rgba(0,0,0,0.1); width: 40px; height: 40px; border-radius: 50%; }
 
-.banner h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.banner p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-}
-
-.btn-primario {
-    background-color: #e63946;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.btn-primario:hover {
-    background-color: #c92a37;
-}
-
-/* Vitrine de Produtos */
-.vitrine {
-    padding: 60px 20px;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.vitrine h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-
-.grade-produtos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.card-produto {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
-}
-
-.card-produto:hover {
-    transform: translateY(-10px);
-}
-
-.card-produto img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-}
-
-.info-produto {
-    padding: 20px;
-}
-
-.info-produto h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.preco {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #e63946;
-    margin-bottom: 15px;
-}
-
-.btn-comprar {
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-comprar:hover {
-    background-color: #128C7E;
-}
-
-/* Rodapé */
-footer {
-    background-color: #1a1a1a;
-    color: #ccc;
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 50px;
-}
-
-/* Responsividade para Celulares */
-@media (max-width: 768px) {
-    .cabecalho {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .banner h1 {
-        font-size: 2rem;
-    }
-}
+/* Animações e Celular */
+@keyframes subir { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 768px) { .modal-conteudo { grid-template-columns: 1fr; } .modal-conteudo img { height: 250px; } .hero h1 { font-size: 2rem; } }
