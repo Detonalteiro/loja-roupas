@@ -3,29 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estilo Carpina - Moda Masculina e Feminina</title>
-    <!-- Aqui conectamos o arquivo CSS -->
+    <title>Boutique Elegance | Moda Masculina e Feminina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Estilo Carpina 👗👕</h1>
-        <p>As melhores tendências da região!</p>
+    <header class="cabecalho">
+        <div class="logo">Boutique Elegance</div>
+        <nav>
+            <a href="#produtos">Coleção</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </nav>
     </header>
 
-    <div class="produto">
-        <h2>Camiseta Básica Premium</h2>
-        <p>100% Algodão. Super confortável.</p>
-        <p class="preco">R$ 55,00</p>
-        
-        <!-- O botão agora tem um 'id' para o JavaScript conseguir achá-lo -->
-        <button id="btn-comprar" class="botao">Comprar no WhatsApp</button>
-        
-        <!-- Uma mensagem escondida que o JavaScript vai mostrar -->
-        <p id="mensagem-aviso" style="display: none; color: #128C7E; margin-top: 15px; font-weight: bold;"></p>
-    </div>
+    <section class="banner">
+        <div class="banner-conteudo">
+            <h1>Nova Coleção de Inverno</h1>
+            <p>Descubra peças exclusivas para renovar o seu estilo.</p>
+            <a href="#produtos" class="btn-primario">Ver Coleção</a>
+        </div>
+    </section>
 
-    <!-- Aqui conectamos o arquivo JavaScript no final da página -->
+    <main id="produtos" class="vitrine">
+        <h2>Destaques da Semana</h2>
+        <div class="grade-produtos">
+            
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500&q=80" alt="Vestido Floral">
+                <div class="info-produto">
+                    <h3>Vestido Floral Verão</h3>
+                    <p class="preco">R$ 129,90</p>
+                    <button class="btn-comprar" data-produto="Vestido Floral Verão" data-preco="R$ 129,90">Comprar no WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" alt="Camiseta Premium">
+                <div class="info-produto">
+                    <h3>Camiseta Algodão Premium</h3>
+                    <p class="preco">R$ 59,90</p>
+                    <button class="btn-comprar" data-produto="Camiseta Algodão Premium" data-preco="R$ 59,90">Comprar no WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=500&q=80" alt="Jaqueta Jeans">
+                <div class="info-produto">
+                    <h3>Jaqueta Jeans Clássica</h3>
+                    <p class="preco">R$ 199,90</p>
+                    <button class="btn-comprar" data-produto="Jaqueta Jeans Clássica" data-preco="R$ 199,90">Comprar no WhatsApp</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="contato">
+        <div class="rodape-conteudo">
+            <p>&copy; 2026 Boutique Elegance. Todos os direitos reservados.</p>
+            <p>Rua Principal, Centro - Carpina/PE</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
