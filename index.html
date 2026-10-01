@@ -2,13 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estilo Carpina - Moda Masculina e Feminina</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f4f4; }
-        header { background-color: #333; color: white; padding: 20px; }
-        .produto { border: 1px solid #ccc; margin: 20px auto; padding: 15px; width: 300px; background: white; border-radius: 8px; }
-        .botao { background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; }
-    </style>
+    <!-- Aqui conectamos o arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -19,8 +16,16 @@
     <div class="produto">
         <h2>Camiseta Básica Premium</h2>
         <p>100% Algodão. Super confortável.</p>
-        <p><strong>R$ 49,90</strong></p>
-        <a href="#" class="botao">Comprar no WhatsApp</a>
+        <p class="preco">R$ 55,00</p>
+        
+        <!-- O botão agora tem um 'id' para o JavaScript conseguir achá-lo -->
+        <button id="btn-comprar" class="botao">Comprar no WhatsApp</button>
+        
+        <!-- Uma mensagem escondida que o JavaScript vai mostrar -->
+        <p id="mensagem-aviso" style="display: none; color: #128C7E; margin-top: 15px; font-weight: bold;"></p>
     </div>
+
+    <!-- Aqui conectamos o arquivo JavaScript no final da página -->
+    <script src="script.js"></script>
 </body>
 </html>
