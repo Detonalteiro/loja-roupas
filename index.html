@@ -3,88 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Store | E-commerce Moderno</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Vanguard Moda | Masculina & Feminina</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para um design moderno e elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones (Carrinho, Busca, etc) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Cabeçalho com Botão de Tema -->
-    <header>
-        <div class="logo">PREMIUM<span>.</span></div>
-        <nav>
-            <button id="btn-tema" class="btn-icone">🌙</button>
+
+    <!-- Cabeçalho (Header e Navegação) -->
+    <header class="header">
+        <div class="logo">
+            <h1>VANGUARD</h1>
+            <span>MODA PREMIUM</span>
+        </div>
+        <nav class="navbar">
+            <ul id="nav-categories">
+                <li><a href="#" class="active" data-category="Todos">Todos</a></li>
+                <li><a href="#" data-category="Camisetas">Camisetas</a></li>
+                <li><a href="#" data-category="Calças">Calças</a></li>
+                <li><a href="#" data-category="Vestidos">Vestidos</a></li>
+                <li><a href="#" data-category="Casacos">Casacos & Jaquetas</a></li>
+                <li><a href="#" data-category="Acessórios">Acessórios</a></li>
+            </ul>
         </nav>
+        <div class="header-actions">
+            <button class="icon-btn"><i class="fas fa-search"></i></button>
+            <button class="icon-btn cart-btn">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
     </header>
 
-    <!-- Seção Hero (Banner Principal) -->
+    <!-- Banner Principal -->
     <section class="hero">
-        <div class="hero-texto">
-            <h1>O seu estilo, redefinido.</h1>
-            <p>Descubra a nova coleção de alto padrão com design exclusivo.</p>
+        <div class="hero-content">
+            <h2>Nova Coleção Outono/Inverno</h2>
+            <p>Descubra a elegância em mais de 100 peças exclusivas. Moda masculina e feminina redefinida.</p>
+            <button class="btn-primary">Ver Coleção</button>
         </div>
     </section>
 
-    <!-- Filtros de Produtos -->
-    <section class="filtros-container">
-        <button class="btn-filtro ativo" data-filtro="todos">Todos</button>
-        <button class="btn-filtro" data-filtro="feminino">Feminino</button>
-        <button class="btn-filtro" data-filtro="masculino">Masculino</button>
-    </section>
+    <!-- Área Principal da Loja -->
+    <main class="shop-container">
+        <!-- Sidebar de Filtros -->
+        <aside class="sidebar-filters">
+            <h3>Filtros</h3>
+            <div class="filter-group">
+                <h4>Gênero</h4>
+                <label><input type="radio" name="gender" value="Todos" checked> Todos</label>
+                <label><input type="radio" name="gender" value="Masculino"> Masculino</label>
+                <label><input type="radio" name="gender" value="Feminino"> Feminino</label>
+                <label><input type="radio" name="gender" value="Unissex"> Unissex</label>
+            </div>
+        </aside>
 
-    <!-- Grade de Produtos -->
-    <main class="grid-produtos">
-        <!-- Produto 1 -->
-        <div class="card" data-categoria="feminino">
-            <div class="imagem-container">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Conjunto Verão">
-                <span class="tag">Novo</span>
+        <!-- Grid de Produtos -->
+        <section class="products-section">
+            <div class="products-header">
+                <h2 id="current-category-title">Mostrando: Todos os Produtos</h2>
+                <span id="product-counter">Carregando...</span>
             </div>
-            <div class="card-info">
-                <h3>Conjunto Alfaiataria</h3>
-                <p class="preco">R$ 289,90</p>
-                <button class="btn-abrir-modal" data-nome="Conjunto Alfaiataria" data-preco="R$ 289,90" data-img="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80">Ver Detalhes</button>
-            </div>
-        </div>
-
-        <!-- Produto 2 -->
-        <div class="card" data-categoria="masculino">
-            <div class="imagem-container">
-                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80" alt="Casaco Masculino">
-            </div>
-            <div class="card-info">
-                <h3>Sobretudo Europeu</h3>
-                <p class="preco">R$ 450,00</p>
-                <button class="btn-abrir-modal" data-nome="Sobretudo Europeu" data-preco="R$ 450,00" data-img="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80">Ver Detalhes</button>
-            </div>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="card" data-categoria="feminino">
-            <div class="imagem-container">
-                <img src="https://images.unsplash.com/photo-1434389673869-e08b4cac3105?w=600&q=80" alt="Bolsa Couro">
-                <span class="tag tag-desconto">-20%</span>
-            </div>
-            <div class="card-info">
-                <h3>Bolsa de Couro</h3>
-                <p class="preco">R$ 199,90</p>
-                <button class="btn-abrir-modal" data-nome="Bolsa de Couro" data-preco="R$ 199,90" data-img="https://images.unsplash.com/photo-1434389673869-e08b4cac3105?w=600&q=80">Ver Detalhes</button>
-            </div>
-        </div>
+            <!-- O JS injetará os produtos aqui dentro -->
+            <div id="product-grid" class="product-grid"></div>
+        </section>
     </main>
 
-    <!-- Modal (Janela Flutuante Escondida) -->
-    <div id="modal-produto" class="modal-overlay">
-        <div class="modal-conteudo">
-            <button id="btn-fechar-modal" class="btn-icone fechar">✖</button>
-            <img id="modal-img" src="" alt="Produto">
-            <div class="modal-info">
-                <h2 id="modal-titulo">Nome</h2>
-                <p id="modal-preco" class="destaque">R$ 0,00</p>
-                <p>Tamanhos disponíveis: P, M, G, GG</p>
-                <button id="btn-comprar-whatsapp" class="btn-acao">Finalizar no WhatsApp</button>
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>VANGUARD</h3>
+                <p>O seu estilo, a nossa paixão. Entregamos para todo o Brasil.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Rastrear Pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vanguard Moda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
