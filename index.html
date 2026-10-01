@@ -1,87 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OUTLET VIP - Seu desejo a um click | Ofertas das melhores marcas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outback Modas | Moda feminina, masculina e infantil</title>
+<meta name="description" content="Outback Modas: roupas femininas, masculinas e infantis com preço justo e ofertas toda semana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cabeçalho Minimalista Premium -->
-    <header>
-        <div class="logo">OUTLET <span>VIP</span></div>
-        <div class="menu-icones">
-            <span>👤 Entrar</span>
-            <span>🛒 Sacola</span>
+
+<div class="topbar">Frete grátis acima de R$ 199 · Parcele em até 6x sem juros · Troca fácil em 7 dias</div>
+
+<header class="header">
+  <div class="wrap header-in">
+    <a href="#inicio" class="logo" aria-label="Outback Modas">Outback<span>Modas</span></a>
+    <form class="search" id="searchForm" role="search">
+      <input type="search" id="searchInput" placeholder="Buscar vestido, camisa, conjunto infantil…" aria-label="Buscar produtos">
+      <button type="submit" aria-label="Buscar">Buscar</button>
+    </form>
+    <button class="cart-btn" id="cartOpen" aria-label="Abrir sacola">
+      Sacola <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+
+  <nav class="tabs" aria-label="Departamentos">
+    <div class="wrap tabs-in" role="tablist">
+      <button class="tab active" role="tab" data-cat="todos">Todos</button>
+      <button class="tab" role="tab" data-cat="feminino">Feminino</button>
+      <button class="tab" role="tab" data-cat="masculino">Masculino</button>
+      <button class="tab" role="tab" data-cat="infantil">Infantil</button>
+      <button class="tab tab-sale" role="tab" data-cat="promocoes">Promoções</button>
+    </div>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <h1>Roupa boa para o dia a dia da família inteira.</h1>
+        <p>Peças selecionadas, caimento confortável e preço que cabe no mês. Escolha pelo site e finalize pelo WhatsApp.</p>
+        <div class="hero-actions">
+          <button class="btn" data-go="todos">Ver coleção</button>
+          <button class="btn btn-ghost" data-go="promocoes">Ver promoções</button>
         </div>
-    </header>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="swatch s1"></div><div class="swatch s2"></div><div class="swatch s3"></div>
+        <div class="hero-tag">Nova coleção<br><strong>Primavera</strong></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Banner Principal -->
-    <section class="banner-destaque">
-        <div class="banner-conteudo">
-            <h1>As Melhores Marcas com até 70% OFF</h1>
-            <p>Vendas exclusivas por tempo limitado. Aproveite antes que acabe.</p>
-        </div>
-    </section>
+  <section class="wrap cats" aria-label="Departamentos em destaque">
+    <button class="cat-card c-fem" data-go="feminino"><span>Feminino</span><small>Vestidos, blusas e jeans</small></button>
+    <button class="cat-card c-mas" data-go="masculino"><span>Masculino</span><small>Camisas, bermudas e calças</small></button>
+    <button class="cat-card c-inf" data-go="infantil"><span>Infantil</span><small>Conforto para brincar</small></button>
+    <button class="cat-card c-pro" data-go="promocoes"><span>Promoções</span><small>Até 40% de desconto</small></button>
+  </section>
 
-    <!-- Seção de Campanhas Ativas (O Estilo Privalia) -->
-    <main class="container-campanhas">
-        <h2>Campanhas Ativas</h2>
-        
-        <div class="grid-marcas">
-            <!-- Campanha 1 -->
-            <div class="card-campanha">
-                <div class="imagem-wrapper">
-                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80" alt="Marca Inverno">
-                    <span class="badge-desconto">Até 60% OFF</span>
-                </div>
-                <div class="info-campanha">
-                    <h3>Coleção Inverno Europeu</h3>
-                    <!-- O JavaScript vai injetar o tempo aqui dentro usando a classe timer-regressivo -->
-                    <div class="cronometro">
-                        ⏳ Termina em: <span class="timer-regressivo" data-horas="48">Calculando...</span>
-                    </div>
-                    <button class="btn-entrar" data-marca="Coleção Inverno">Entrar na Campanha</button>
-                </div>
-            </div>
+  <section class="wrap catalog" id="catalogo">
+    <div class="catalog-head">
+      <div>
+        <h2 id="catTitle">Todos os produtos</h2>
+        <p class="muted" id="catCount"></p>
+      </div>
+      <div class="filters">
+        <label>Tamanho
+          <select id="sizeFilter">
+            <option value="">Todos</option>
+          </select>
+        </label>
+        <label>Ordenar
+          <select id="sortSelect">
+            <option value="rel">Relevância</option>
+            <option value="menor">Menor preço</option>
+            <option value="maior">Maior preço</option>
+            <option value="desc">Maior desconto</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nenhum produto encontrado. Tente outro tamanho ou termo de busca.</p>
+  </section>
 
-            <!-- Campanha 2 -->
-            <div class="card-campanha">
-                <div class="imagem-wrapper">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Tênis Esportivos">
-                    <span class="badge-desconto">Até 70% OFF</span>
-                </div>
-                <div class="info-campanha">
-                    <h3>Sneakers & Esporte</h3>
-                    <div class="cronometro">
-                        ⏳ Termina em: <span class="timer-regressivo" data-horas="12">Calculando...</span>
-                    </div>
-                    <button class="btn-entrar" data-marca="Sneakers e Esporte">Entrar na Campanha</button>
-                </div>
-            </div>
+  <section class="benefits">
+    <div class="wrap benefits-in">
+      <div><h3>Entrega rápida</h3><p>Receba em casa ou retire na loja sem pagar nada.</p></div>
+      <div><h3>Troca sem burocracia</h3><p>Não serviu? Troque em até 7 dias com a etiqueta.</p></div>
+      <div><h3>Pagamento facilitado</h3><p>Pix com 5% off, cartão em até 6x sem juros.</p></div>
+      <div><h3>Atendimento próximo</h3><p>Fale direto com a nossa equipe pelo WhatsApp.</p></div>
+    </div>
+  </section>
 
-            <!-- Campanha 3 -->
-            <div class="card-campanha">
-                <div class="imagem-wrapper">
-                    <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800&q=80" alt="Cosméticos e Perfumaria">
-                    <span class="badge-desconto">Até 50% OFF</span>
-                </div>
-                <div class="info-campanha">
-                    <h3>Perfumaria Importada</h3>
-                    <div class="cronometro">
-                        ⏳ Termina em: <span class="timer-regressivo" data-horas="72">Calculando...</span>
-                    </div>
-                    <button class="btn-entrar" data-marca="Perfumaria Importada">Entrar na Campanha</button>
-                </div>
-            </div>
-        </div>
-    </main>
+  <section class="wrap newsletter">
+    <div>
+      <h2>Receba as ofertas antes de todo mundo</h2>
+      <p class="muted">Avisamos sobre novas peças e promoções da semana.</p>
+    </div>
+    <form id="newsForm" class="news-form">
+      <input type="email" id="newsEmail" placeholder="Seu melhor e-mail" required aria-label="E-mail">
+      <button class="btn" type="submit">Quero receber</button>
+    </form>
+  </section>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Outlet VIP. Simulação de E-commerce.</p>
-    </footer>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div>
+      <a href="#inicio" class="logo logo-light">Outback<span>Modas</span></a>
+      <p>Moda para toda a família, com atendimento de quem conhece você pelo nome.</p>
+    </div>
+    <div>
+      <h4>Departamentos</h4>
+      <a href="#catalogo" data-go="feminino">Feminino</a>
+      <a href="#catalogo" data-go="masculino">Masculino</a>
+      <a href="#catalogo" data-go="infantil">Infantil</a>
+      <a href="#catalogo" data-go="promocoes">Promoções</a>
+    </div>
+    <div>
+      <h4>Atendimento</h4>
+      <p>Seg a sex: 8h às 18h<br>Sábado: 8h às 14h</p>
+      <p>WhatsApp: (81) 90000-0000</p>
+    </div>
+    <div>
+      <h4>Visite a loja</h4>
+      <p>Rua Exemplo, 123 — Centro<br>Coloque aqui seu endereço</p>
+      <p>@outbackmodas</p>
+    </div>
+  </div>
+  <div class="wrap copy">© <span id="year"></span> Outback Modas. Todos os direitos reservados.</div>
+</footer>
 
-    <script src="script.js"></script>
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Sacola de compras" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>Sua sacola</h3>
+    <button class="icon-btn" id="cartClose" aria-label="Fechar sacola">✕</button>
+  </div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+    <button class="btn btn-block" id="checkout">Finalizar pelo WhatsApp</button>
+    <button class="link-btn" id="clearCart">Esvaziar sacola</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
