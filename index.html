@@ -3,68 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique Elegance | Moda Masculina e Feminina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Premium Store | E-commerce Moderno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cabecalho">
-        <div class="logo">Boutique Elegance</div>
+    <!-- Cabeçalho com Botão de Tema -->
+    <header>
+        <div class="logo">PREMIUM<span>.</span></div>
         <nav>
-            <a href="#produtos">Coleção</a>
-            <a href="#sobre">Sobre Nós</a>
-            <a href="#contato">Contato</a>
+            <button id="btn-tema" class="btn-icone">🌙</button>
         </nav>
     </header>
 
-    <section class="banner">
-        <div class="banner-conteudo">
-            <h1>Nova Coleção de Inverno</h1>
-            <p>Descubra peças exclusivas para renovar o seu estilo.</p>
-            <a href="#produtos" class="btn-primario">Ver Coleção</a>
+    <!-- Seção Hero (Banner Principal) -->
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>O seu estilo, redefinido.</h1>
+            <p>Descubra a nova coleção de alto padrão com design exclusivo.</p>
         </div>
     </section>
 
-    <main id="produtos" class="vitrine">
-        <h2>Destaques da Semana</h2>
-        <div class="grade-produtos">
-            
-            <div class="card-produto">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500&q=80" alt="Vestido Floral">
-                <div class="info-produto">
-                    <h3>Vestido Floral Verão</h3>
-                    <p class="preco">R$ 129,90</p>
-                    <button class="btn-comprar" data-produto="Vestido Floral Verão" data-preco="R$ 129,90">Comprar no WhatsApp</button>
-                </div>
-            </div>
+    <!-- Filtros de Produtos -->
+    <section class="filtros-container">
+        <button class="btn-filtro ativo" data-filtro="todos">Todos</button>
+        <button class="btn-filtro" data-filtro="feminino">Feminino</button>
+        <button class="btn-filtro" data-filtro="masculino">Masculino</button>
+    </section>
 
-            <div class="card-produto">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" alt="Camiseta Premium">
-                <div class="info-produto">
-                    <h3>Camiseta Algodão Premium</h3>
-                    <p class="preco">R$ 59,90</p>
-                    <button class="btn-comprar" data-produto="Camiseta Algodão Premium" data-preco="R$ 59,90">Comprar no WhatsApp</button>
-                </div>
+    <!-- Grade de Produtos -->
+    <main class="grid-produtos">
+        <!-- Produto 1 -->
+        <div class="card" data-categoria="feminino">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Conjunto Verão">
+                <span class="tag">Novo</span>
             </div>
-
-            <div class="card-produto">
-                <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=500&q=80" alt="Jaqueta Jeans">
-                <div class="info-produto">
-                    <h3>Jaqueta Jeans Clássica</h3>
-                    <p class="preco">R$ 199,90</p>
-                    <button class="btn-comprar" data-produto="Jaqueta Jeans Clássica" data-preco="R$ 199,90">Comprar no WhatsApp</button>
-                </div>
+            <div class="card-info">
+                <h3>Conjunto Alfaiataria</h3>
+                <p class="preco">R$ 289,90</p>
+                <button class="btn-abrir-modal" data-nome="Conjunto Alfaiataria" data-preco="R$ 289,90" data-img="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80">Ver Detalhes</button>
             </div>
+        </div>
 
+        <!-- Produto 2 -->
+        <div class="card" data-categoria="masculino">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80" alt="Casaco Masculino">
+            </div>
+            <div class="card-info">
+                <h3>Sobretudo Europeu</h3>
+                <p class="preco">R$ 450,00</p>
+                <button class="btn-abrir-modal" data-nome="Sobretudo Europeu" data-preco="R$ 450,00" data-img="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80">Ver Detalhes</button>
+            </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="card" data-categoria="feminino">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1434389673869-e08b4cac3105?w=600&q=80" alt="Bolsa Couro">
+                <span class="tag tag-desconto">-20%</span>
+            </div>
+            <div class="card-info">
+                <h3>Bolsa de Couro</h3>
+                <p class="preco">R$ 199,90</p>
+                <button class="btn-abrir-modal" data-nome="Bolsa de Couro" data-preco="R$ 199,90" data-img="https://images.unsplash.com/photo-1434389673869-e08b4cac3105?w=600&q=80">Ver Detalhes</button>
+            </div>
         </div>
     </main>
 
-    <footer id="contato">
-        <div class="rodape-conteudo">
-            <p>&copy; 2026 Boutique Elegance. Todos os direitos reservados.</p>
-            <p>Rua Principal, Centro - Carpina/PE</p>
+    <!-- Modal (Janela Flutuante Escondida) -->
+    <div id="modal-produto" class="modal-overlay">
+        <div class="modal-conteudo">
+            <button id="btn-fechar-modal" class="btn-icone fechar">✖</button>
+            <img id="modal-img" src="" alt="Produto">
+            <div class="modal-info">
+                <h2 id="modal-titulo">Nome</h2>
+                <p id="modal-preco" class="destaque">R$ 0,00</p>
+                <p>Tamanhos disponíveis: P, M, G, GG</p>
+                <button id="btn-comprar-whatsapp" class="btn-acao">Finalizar no WhatsApp</button>
+            </div>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
