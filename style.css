@@ -1,311 +1,168 @@
-/* Variáveis de Cor e Tipografia */
-:root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #f4f4f4;
-    --accent-color: #d4af37; /* Dourado suave para dar ar premium */
-    --text-color: #333333;
-    --light-text: #777777;
-    --white: #ffffff;
-    --transition: all 0.3s ease;
-}
-
+/* Reset e Fontes */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    background-color: #fafafa;
-    color: var(--text-color);
+    background-color: #f4f4f4;
+    color: #222;
 }
 
-/* Header */
-.header {
+/* Cabeçalho */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background-color: var(--white);
+    padding: 20px 5%;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.logo h1 {
+.logo {
     font-size: 1.5rem;
-    letter-spacing: 2px;
-    color: var(--primary-color);
-}
-
-.logo span {
-    font-size: 0.7rem;
-    color: var(--light-text);
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+.logo span {
+    color: #d81b60; /* Rosa/Vermelho estilo outlet */
 }
 
-.navbar a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.navbar a:hover, .navbar a.active {
-    color: var(--accent-color);
-}
-
-.header-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.icon-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
+.menu-icones span {
+    margin-left: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
     cursor: pointer;
-    color: var(--primary-color);
-    position: relative;
 }
 
-.cart-btn span {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: var(--accent-color);
-    color: var(--white);
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 50%;
-    font-weight: bold;
-}
-
-/* Hero Section */
-.hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+/* Banner Destacado */
+.banner-destaque {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80') center/cover;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white);
+    color: white;
+    padding: 0 20px;
 }
 
-.hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.banner-conteudo h1 { font-size: 2.5rem; margin-bottom: 10px; text-transform: uppercase; }
+.banner-conteudo p { font-size: 1.2rem; font-weight: 300; }
+
+/* Grid de Campanhas */
+.container-campanhas {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.btn-primary {
-    padding: 1rem 2rem;
-    background-color: var(--white);
-    color: var(--primary-color);
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
+.container-campanhas h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-color);
-    color: var(--white);
-}
-
-/* Layout Principal: Loja */
-.shop-container {
-    display: flex;
-    padding: 4rem 5%;
-    gap: 2rem;
-}
-
-/* Sidebar de Filtros */
-.sidebar-filters {
-    flex: 0 0 250px;
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    height: fit-content;
-}
-
-.sidebar-filters h3 {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.filter-group h4 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.filter-group label {
-    cursor: pointer;
-    color: var(--light-text);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Produtos */
-.products-section {
-    flex: 1;
-}
-
-.products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.product-grid {
+.grid-marcas {
     display: grid;
-    /* Mágica da responsividade: cria colunas automaticamente baseadas no tamanho da tela */
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
-.product-card {
-    background: var(--white);
+/* Cards Estilo Privalia */
+.card-campanha {
+    background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    transition: var(--transition);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
 }
 
-.product-card:hover {
+.card-campanha:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.product-img {
+.imagem-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.imagem-wrapper img {
     width: 100%;
-    height: 320px;
+    height: 100%;
     object-fit: cover;
-    background-color: #eee; /* placeholder se a imagem falhar */
+    transition: transform 0.8s;
 }
 
-.product-info {
-    padding: 1.5rem;
+.card-campanha:hover .imagem-wrapper img {
+    transform: scale(1.05);
+}
+
+.badge-desconto {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: #d81b60;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.info-campanha {
+    padding: 25px;
     text-align: center;
 }
 
-.product-category {
-    font-size: 0.75rem;
-    color: var(--light-text);
+.info-campanha h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* O Cronômetro */
+.cronometro {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.timer-regressivo {
+    color: #d81b60;
+}
+
+/* Botão Estilo Luxo */
+.btn-entrar {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-.product-title {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color: var(--primary-color);
-}
-
-.product-price {
-    font-weight: 700;
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.btn-add-cart {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
     cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
+    transition: background 0.3s;
 }
 
-.btn-add-cart:hover {
-    background-color: var(--accent-color);
+.btn-entrar:hover {
+    background-color: #d81b60;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 4rem 5% 1rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.footer-col h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-col a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-.social-links a {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    color: var(--accent-color);
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    padding-top: 1.5rem;
-    font-size: 0.9rem;
-    color: var(--light-text);
-}
-
-/* Responsividade básica para Mobile */
-@media (max-width: 768px) {
-    .shop-container {
-        flex-direction: column;
-    }
-    .navbar ul {
-        display: none; /* Em um projeto real, aqui entra um menu hambúrguer */
-    }
-}
+footer { text-align: center; padding: 30px; background: #111; color: #fff; margin-top: 50px; }
