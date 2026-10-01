@@ -1,26 +1,27 @@
-// Pega o botão e o espaço da mensagem que vamos colocar no HTML
-const botaoComprar = document.getElementById('btn-comprar');
-const mensagem = document.getElementById('mensagem-aviso');
+// Seleciona todos os botões de comprar do site
+const botoesComprar = document.querySelectorAll('.btn-comprar');
 
-// Adiciona uma ação de clique (evento) ao botão
-botaoComprar.addEventListener('click', function() {
-    
-    // 1. Muda o texto e a cor do botão na hora do clique
-    botaoComprar.innerText = "Redirecionando...";
-    botaoComprar.style.backgroundColor = "#999";
+// Configura o número da loja (Coloque o DDD e o número, sem espaços)
+const numeroWhatsApp = "5581999999999"; 
 
-    // 2. Mostra a mensagem escondida
-    mensagem.style.display = "block";
-    mensagem.innerText = "Abrindo o WhatsApp da loja...";
-
-    // 3. Cria um atraso de 2 segundos (2000 milissegundos) para simular o carregamento
-    setTimeout(function() {
-        // Aqui entraria o link real do WhatsApp no projeto final
-        alert("Simulação: O cliente seria levado para o WhatsApp agora!");
+// Adiciona a ação de clique em cada botão
+botoesComprar.forEach(botao => {
+    botao.addEventListener('click', function() {
         
-        // 4. Volta o botão ao normal depois que o alerta é fechado
-        botaoComprar.innerText = "Comprar no WhatsApp";
-        botaoComprar.style.backgroundColor = "#25D366";
-        mensagem.style.display = "none";
-    }, 2000);
+        // Pega o nome do produto e o preço que estão escondidos no HTML (data-produto e data-preco)
+        const nomeDoProduto = this.getAttribute('data-produto');
+        const precoDoProduto = this.getAttribute('data-preco');
+        
+        // Monta a mensagem que vai chegar no WhatsApp do dono da loja
+        const mensagem = `Olá! Tenho interesse no produto: ${nomeDoProduto} no valor de ${precoDoProduto}. Ainda tem disponibilidade?`;
+        
+        // Codifica a mensagem para formato de link de internet
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        
+        // Cria o link oficial da API do WhatsApp
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+        
+        // Abre o WhatsApp em uma nova aba ou no aplicativo do celular
+        window.open(linkWhatsApp, '_blank');
+    });
 });
