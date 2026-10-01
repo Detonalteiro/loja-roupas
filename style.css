@@ -1,0 +1,57 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 30px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 { margin: 0; font-size: 2.5em; }
+
+.produto {
+    background: white;
+    border-radius: 12px;
+    margin: 40px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease; /* Prepara a animação */
+}
+
+/* Efeito que faz o card subir um pouco quando passa o mouse */
+.produto:hover {
+    transform: translateY(-8px); 
+}
+
+.preco {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #e63946;
+    margin: 15px 0;
+}
+
+.botao {
+    background-color: #25D366; /* Verde do WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border-radius: 25px; /* Deixa redondo */
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Deixa o botão mais escuro ao passar o mouse */
+.botao:hover {
+    background-color: #128C7E; 
+}
